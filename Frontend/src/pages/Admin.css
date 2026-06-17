@@ -1,0 +1,83 @@
+.admin-container{
+  min-height:100vh;
+  padding:40px;
+  background:#0f172a;
+  color:white;
+}
+
+.admin-title{
+  text-align:center;
+  margin-bottom:30px;
+  color:#D4A373;
+}
+
+.stats-container{
+  display:flex;
+  gap:20px;
+  margin-bottom:30px;
+  flex-wrap:wrap;
+}
+
+.stat-card{
+  flex:1;
+  min-width:220px;
+  background:#1e293b;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+}
+
+.stat-card h2{
+  font-size:2rem;
+  color:#D4A373;
+}
+
+.search-box{
+  width:100%;
+  padding:15px;
+  margin-bottom:25px;
+  border:none;
+  border-radius:10px;
+  background:#1e293b;
+  color:white;
+}
+
+.table-wrapper{
+  overflow-x:auto;
+}
+
+.admin-table{
+  width:100%;
+  border-collapse:collapse;
+  background:#1e293b;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+.admin-table th{
+  background:#D4A373;
+  color:white;
+  padding:15px;
+}
+
+.admin-table td{
+  padding:15px;
+  border-bottom:1px solid #334155;
+}
+
+.admin-table tr:hover{
+  background:#273449;
+}
+
+.delete-btn{
+  background:#ef4444;
+  border:none;
+  color:white;
+  padding:8px 15px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.delete-btn:hover{
+  background:#dc2626;
+}
