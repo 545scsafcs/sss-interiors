@@ -1,8 +1,9 @@
+import logo from "../assets/logo.jpg";
 function Navbar() {
   return (
     <nav className="navbar">
       <div className="logo">
-  <img src="/src/assets/logo.jpg" alt="SSS Interiors" />
+  <img src={logo} alt="SSS Interiors" />
   <h2>SSS Interiors</h2>
 </div>
 
