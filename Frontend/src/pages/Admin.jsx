@@ -9,7 +9,7 @@ function Admin() {
   const loadLeads = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/leads"
+        "https://sss-interiors-backend.onrender.com/api/leads"
       );
 
       setLeads(res.data.data);
@@ -31,7 +31,7 @@ function Admin() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/leads/${id}`
+        `https://sss-interiors-backend.onrender.com/api/leads/${id}`
       );
 
       loadLeads();

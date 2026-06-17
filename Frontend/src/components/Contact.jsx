@@ -24,7 +24,7 @@ function Contact() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/leads",
+        "https://sss-interiors-backend.onrender.com/api/leads",
         {
           name: formData.name,
           phone: formData.phone,
