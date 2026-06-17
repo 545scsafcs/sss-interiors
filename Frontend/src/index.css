@@ -602,3 +602,24 @@ body{
     overflow-x:hidden;
   }
 }
+
+@media (max-width:768px){
+
+  .about-right{
+    grid-template-columns:1fr;
+    width:100%;
+  }
+
+  .stat-card{
+    width:100%;
+  }
+
+}
+
+body{
+  overflow-x:hidden;
+}
+
+.about{
+  overflow:hidden;
+}
