@@ -3,6 +3,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import { FaArrowRight, FaCheck } from "react-icons/fa";
+import homeImage from "../assets/living-room-1.jpg";
+import officeImage from "../assets/office-1.jpg";
+import kitchenImage from "../assets/kitchen-1.jpg";
+import renovationImage from "../assets/renovation.jpg";
 
 function ServiceDetailPage() {
   const { service } = useParams();
@@ -131,37 +135,47 @@ function ServiceDetailPage() {
   };
 
   const serviceData = services[service];
+  const heroImages = {
+  "home-interior": homeImage,
+  "office-interior": officeImage,
+  "modular-kitchen": kitchenImage,
+  "renovation": renovationImage,
+};
+
+const heroImage = heroImages[service];
 
   if (!serviceData) {
     return <div>Service not found</div>;
   }
-
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <>
       <Navbar />
 
       {/* Hero Section */}
-      <section style={{
-        minHeight: "60vh",
-        background: "linear-gradient(135deg, #1D1A17, #2C2C2C)",
-        color: "white",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "100px 40px 80px",
-        marginTop: "70px"
-      }}>
+      <section
+  style={{
+    minHeight: "70vh",
+    backgroundImage: `
+      linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.55)
+      ),
+      url(${heroImage})
+    `,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    color: "white",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "100px 40px 80px",
+    marginTop: "70px",
+  }}
+>
         <div style={{ textAlign: "center", maxWidth: "900px" }}>
-          <div style={{ fontSize: "4rem", marginBottom: "20px" }}>
-            {serviceData.image}
-          </div>
+          
           <h1 style={{ fontSize: "3.5rem", fontFamily: "var(--font-heading)", marginBottom: "20px" }}>
             {serviceData.title}
           </h1>

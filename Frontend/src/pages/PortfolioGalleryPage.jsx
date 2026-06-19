@@ -35,9 +35,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import { FaArrowRight } from "react-icons/fa";
+import { useState } from "react";
 
 function PortfolioGalleryPage() {
   const { category } = useParams();
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const portfolioData = {
     "living-room": {
@@ -148,7 +150,8 @@ function PortfolioGalleryPage() {
           }}>
             {images.map((image, index) => (
               <div
-                key={image.id}
+                key={index}
+                onClick={() => setSelectedImage(image)}
                 style={{
                   background: "white",
                   borderRadius: "8px",
@@ -198,15 +201,17 @@ function PortfolioGalleryPage() {
             border: "1px solid #E6DDD2",
             textAlign: "center"
           }}>
-            <p style={{ color: "#666", fontSize: "1rem", lineHeight: "1.6" }}>
-              To see our actual portfolio images, please place your images in the <code>Frontend/src/assets/</code> folder with names like:
+            <p style={{ color: "#666", fontSize: "1rem", lineHeight: "1.8" }}>
+            Every  project in our portfolio reflects our commitment to thoughtful design,
+             premium craftsmanship, and attention to detail. From modern living spaces
+            and luxurious bedrooms to functional kitchens and inspiring workspaces,
+           we create interiors that blend beauty, comfort, and practicality.
+           Explore our work and discover how we transform ideas into timeless spaces.
               <br />
-              <code style={{ background: "#F7F3EE", padding: "2px 6px", borderRadius: "3px" }}>
-                {category}-1.jpg, {category}-2.jpg, etc.
-              </code>
+             Note: Every project is thoughtfully designed to blend aesthetics, comfort, and functionality, creating spaces that truly feel like home.
             </p>
             <p style={{ color: "#999", fontSize: "0.9rem", marginTop: "15px" }}>
-              Currently displaying placeholder layout. Images will appear once added to the project.
+              More project images and case studies are continuously being added to our portfolio.
             </p>
           </div>
         </div>
@@ -299,6 +304,53 @@ function PortfolioGalleryPage() {
           Book a Consultation <FaArrowRight style={{ marginLeft: "8px", display: "inline" }} />
         </Link>
       </section>
+      {selectedImage && (
+  <div
+    onClick={() => setSelectedImage(null)}
+    style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      background: "rgba(0,0,0,0.95)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: "99999",
+      cursor: "pointer",
+      padding: "20px",
+    }}
+  >
+    <img
+      src={selectedImage}
+      alt="Full View"
+      onClick={(e) => e.stopPropagation()}
+      style={{
+        maxWidth: "95%",
+        maxHeight: "95%",
+        borderRadius: "12px",
+        objectFit: "contain",
+      }}
+    />
+
+    <button
+      onClick={() => setSelectedImage(null)}
+      style={{
+        position: "absolute",
+        top: "20px",
+        right: "25px",
+        background: "transparent",
+        border: "none",
+        color: "white",
+        fontSize: "2rem",
+        cursor: "pointer",
+      }}
+    >
+      ✕
+    </button>
+  </div>
+)}
 
       <Footer />
       <WhatsAppButton />

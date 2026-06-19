@@ -23,9 +23,9 @@ const goToContact = () => {
 };
 
   const teamMembers = [
-    { id: 1, name: "Sarah Shaw", role: "Principal Designer", initial: "S" },
-    { id: 2, name: "Vikram Rao", role: "Senior Designer", initial: "V" },
-    { id: 3, name: "Monica Jain", role: "Design Lead", initial: "M" },
+    { id: 1, name: "Vineet Yadav", role: "Principal Designer", initial: "V" },
+    { id: 2, name: "Utkarsh Kumar Singh", role: "Senior Designer", initial: "U" },
+    { id: 3, name: "Anjali Singh", role: "Design Lead", initial: "A" },
     { id: 4, name: "Aditya Verma", role: "Project Manager", initial: "A" }
   ];
 
@@ -97,8 +97,17 @@ const goToContact = () => {
 
       {/* Mission & Vision */}
       <section style={{ padding: "100px 60px", background: "white" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px" }}>
-          <div style={{ padding: "40px", background: "#F7F3EE", borderRadius: "8px" }}>
+       <div
+  className="mission-vision-grid"
+  style={{
+    maxWidth: "1200px",
+    margin: "0 auto",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "60px"
+  }}
+>
+          <div style={{ padding: "30px", background: "#F7F3EE", borderRadius: "8px" }}>
             <h3 style={{ fontSize: "1.8rem", fontFamily: "var(--font-heading)", color: "#1D1A17", marginBottom: "15px" }}>
               Our Mission
             </h3>
@@ -106,7 +115,7 @@ const goToContact = () => {
               To design innovative and functional interior spaces that reflect the unique personality and lifestyle of our clients while maintaining the highest standards of craftsmanship and sustainability.
             </p>
           </div>
-          <div style={{ padding: "40px", background: "#1D1A17", borderRadius: "8px", color: "white" }}>
+          <div style={{ padding: "30px", background: "#1D1A17", borderRadius: "8px", color: "white" }}>
             <h3 style={{ fontSize: "1.8rem", fontFamily: "var(--font-heading)", color: "#C79A63", marginBottom: "15px" }}>
               Our Vision
             </h3>
