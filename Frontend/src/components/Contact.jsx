@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 function Contact() {
 
@@ -61,11 +62,10 @@ function Contact() {
     >
 
       <div className="contact-header">
-        <h2>Let's Design Your Dream Space</h2>
+        <h2>Let's design something <span>beautiful.</span></h2>
 
         <p>
-          Tell us about your project and our design experts
-          will contact you shortly.
+          Share a few details about your project, and our design experts will reach out to discuss your vision.
         </p>
       </div>
 
@@ -74,18 +74,33 @@ function Contact() {
         <div className="contact-info">
 
           <div className="info-card">
-            <h3>📞 Phone</h3>
-            <p>+91 XXXXX XXXXX</p>
+            <div className="info-card-title">
+              <FaPhone style={{ marginRight: "8px" }} />
+              Phone
+            </div>
+            <a href="tel:+919999988888" style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}>
+              <p>+91 99999 88888</p>
+            </a>
           </div>
 
           <div className="info-card">
-            <h3>📧 Email</h3>
-            <p>info@sssinteriors.com</p>
+            <div className="info-card-title">
+              <FaEnvelope style={{ marginRight: "8px" }} />
+              Email
+            </div>
+            <a href="mailto:info@sssinteriors.com" style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}>
+              <p>info@sssinteriors.com</p>
+            </a>
           </div>
 
           <div className="info-card">
-            <h3>📍 Location</h3>
-            <p>Uttarakhand, India</p>
+            <div className="info-card-title">
+              <FaMapMarkerAlt style={{ marginRight: "8px" }} />
+              Location
+            </div>
+            <a href="https://maps.google.com/?q=Uttarakhand,India" target="_blank" rel="noreferrer" style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}>
+              <p>Uttarakhand, India</p>
+            </a>
           </div>
 
         </div>
@@ -95,77 +110,85 @@ function Contact() {
           onSubmit={handleSubmit}
         >
 
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+          <div className="contact-form-group">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
 
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+          <div className="contact-form-group full">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-          <select
-            name="service"
-            value={formData.service}
-            onChange={handleChange}
-            required
-          >
-            <option value="">
-              Select Project Type
-            </option>
+          <div className="contact-form-group">
+            <select
+              name="service"
+              value={formData.service}
+              onChange={handleChange}
+              required
+            >
+              <option value="">
+                Select Project Type
+              </option>
 
-            <option>
-              Home Interior
-            </option>
+              <option>
+                Home Interior
+              </option>
 
-            <option>
-              Office Interior
-            </option>
+              <option>
+                Office Interior
+              </option>
 
-            <option>
-              Modular Kitchen
-            </option>
+              <option>
+                Modular Kitchen
+              </option>
 
-            <option>
-              Renovation
-            </option>
+              <option>
+                Renovation
+              </option>
 
-          </select>
+            </select>
 
-          <input
-            type="number"
-            name="budget"
-            placeholder="Estimated Budget (₹)"
-            value={formData.budget}
-            onChange={handleChange}
-          />
+            <input
+              type="number"
+              name="budget"
+              placeholder="Estimated Budget (₹)"
+              value={formData.budget}
+              onChange={handleChange}
+            />
+          </div>
 
-          <textarea
-            rows="5"
-            name="message"
-            placeholder="Describe Your Project"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          ></textarea>
+          <div className="contact-form-group full">
+            <textarea
+              rows="4"
+              name="message"
+              placeholder="Tell us about your project..."
+              value={formData.message}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </div>
 
           <button type="submit">
             Request Consultation

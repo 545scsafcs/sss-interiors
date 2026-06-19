@@ -13,6 +13,9 @@ import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 
 import Admin from "./pages/Admin";
+import AboutPage from "./pages/AboutPage";
+import ServiceDetailPage from "./pages/ServiceDetailPage";
+import PortfolioGalleryPage from "./pages/PortfolioGalleryPage";
 
 function HomePage() {
   return (
@@ -42,6 +45,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/services/:service" element={<ServiceDetailPage />} />
+        <Route path="/portfolio/:category" element={<PortfolioGalleryPage />} />
       </Routes>
     </BrowserRouter>
   );

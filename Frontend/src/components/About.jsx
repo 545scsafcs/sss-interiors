@@ -1,48 +1,52 @@
+import { Link } from "react-router-dom";
+
 function About() {
   return (
     <section id="about" className="about" data-aos="fade-up">
-      <div className="about-left">
-        <h2>About SSS Interiors</h2>
-
-        <p>
-          Since 2010, SSS Interiors has been transforming homes,
-          offices, and commercial spaces into elegant and functional
-          environments.
-        </p>
-
-        <p>
-          Our team combines creativity, innovation, and premium
-          craftsmanship to deliver interiors that reflect your
-          personality and lifestyle.
-        </p>
-
-        <button className="about-btn">
-          Learn More
-        </button>
+      <div className="section-header">
+        <div className="section-label">ABOUT OUR STUDIO</div>
+        <h2 className="section-title">A studio shaped by <span>craft.</span></h2>
       </div>
 
-      <div className="about-right">
-        <div className="stat-card">
-          <h3>14+</h3>
-          <p>Years Experience</p>
+      <div className="about-content">
+        <div className="about-left">
+          <h2>SSS Interiors</h2>
+
+          <p>
+            Founded in 2010, SSS Interiors has been at the forefront of premium interior design and renovation. Our studio has transformed hundreds of homes, offices, and commercial spaces into elegant and functional environments that inspire.
+          </p>
+
+          <p>
+            We believe that every space tells a story. Our team combines creativity, innovation, and meticulous craftsmanship to deliver interiors that don't just look beautiful – they enhance the way you live and work.
+          </p>
+
+          <Link to="/about" className="about-cta">
+            Learn More →
+          </Link>
         </div>
 
-        <div className="stat-card">
-          <h3>500+</h3>
-          <p>Projects Completed</p>
-        </div>
+        <div className="about-right">
+          <div className="stat-card">
+            <div className="stat-card-number">15+</div>
+            <div className="stat-card-label">Years of Experience</div>
+          </div>
 
-        <div className="stat-card">
-          <h3>300+</h3>
-          <p>Happy Clients</p>
-        </div>
+          <div className="stat-card">
+            <div className="stat-card-number">500+</div>
+            <div className="stat-card-label">Projects Completed</div>
+          </div>
 
-        <div className="stat-card">
-          <h3>24/7</h3>
-          <p>Support</p>
+          <div className="stat-card">
+            <div className="stat-card-number">300+</div>
+            <div className="stat-card-label">Happy Clients</div>
+          </div>
+
+          <div className="stat-card">
+            <div className="stat-card-number">98%</div>
+            <div className="stat-card-label">Satisfaction Rate</div>
+          </div>
         </div>
       </div>
-
     </section>
   );
 }
