@@ -13,9 +13,10 @@ const leadSchema = new mongoose.Schema(
     },
 
     email: {
-      type: String,
-      required: true,
-    },
+  type: String,
+  default: "",
+},
+
 
     service: {
       type: String,

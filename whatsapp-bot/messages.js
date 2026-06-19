@@ -51,7 +51,10 @@ Your job:
         email: ""
       });
     } catch (err) {
-      console.error("Backend error:", err.message);
+      console.error(
+  "Backend error:",
+  err.response?.data || err.message
+);
     }
     twiml.message(`✅ Booking Confirmed! Our team will contact you within 24 hours.`);
     userState[from] = { history: [] };
