@@ -1253,3 +1253,23 @@ body{
   }
 
 }
+.features-benefits-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .features-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.service-section {
+  padding: 80px 60px;
+}
+
+@media (max-width: 768px) {
+  .service-section {
+    padding: 60px 20px;
+  }
+}

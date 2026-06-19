@@ -198,8 +198,16 @@ const heroImage = heroImages[service];
       </section>
 
       {/* Features & Benefits Grid */}
-      <section style={{ padding: "80px 60px", background: "white" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px" }}>
+      <section className="service-section" style={{ background: "white" }}>
+        <div
+  className="features-benefits-grid"
+  style={{
+    maxWidth: "1200px",
+    margin: "0 auto",
+    display: "grid",
+    gap: "80px"
+  }}
+>
           {/* Features */}
           <div>
             <h3 style={{ fontSize: "2rem", fontFamily: "var(--font-heading)", color: "#1D1A17", marginBottom: "30px" }}>
