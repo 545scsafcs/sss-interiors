@@ -1,8 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -12,7 +13,6 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 
-import Admin from "./pages/Admin";
 import AboutPage from "./pages/AboutPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import PortfolioGalleryPage from "./pages/PortfolioGalleryPage";
@@ -46,27 +46,32 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/admin" element={<Admin />} />
+      <AuthProvider>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services/:service" element={<ServiceDetailPage />} />
+          <Route path="/portfolio/:category" element={<PortfolioGalleryPage />} />
 
-<Route
-  path="/admin/login"
-  element={<AdminLogin />}
-/>
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
 
-<Route
-  path="/admin/dashboard"
-  element={
-    <PrivateRoute>
-      <Dashboard />
-    </PrivateRoute>
-  }
-/>
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/services/:service" element={<ServiceDetailPage />} />
-        <Route path="/portfolio/:category" element={<PortfolioGalleryPage />} />
-      </Routes>
+          {/* Redirect /admin to /admin/login */}
+          <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
+
+          {/* Catch-all: redirect unknown routes to home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

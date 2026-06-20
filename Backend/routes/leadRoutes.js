@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+const protect = require("../middleware/authMiddleware");
 
 const {
   createLead,
@@ -8,8 +9,11 @@ const {
   deleteLead,
 } = require("../controllers/leadController");
 
+// Public route: Create lead (for website form submissions)
 router.post("/", createLead);
-router.get("/", getLeads);
-router.delete("/:id", deleteLead);
+
+// Protected routes: Get and delete leads (admin only)
+router.get("/", protect, getLeads);
+router.delete("/:id", protect, deleteLead);
 
 module.exports = router;
