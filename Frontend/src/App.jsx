@@ -17,6 +17,10 @@ import AboutPage from "./pages/AboutPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import PortfolioGalleryPage from "./pages/PortfolioGalleryPage";
 
+import AdminLogin from "./pages/AdminLogin";
+import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./components/PrivateRoute";
+
 function HomePage() {
   return (
     <>
@@ -45,6 +49,20 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/admin" element={<Admin />} />
+
+<Route
+  path="/admin/login"
+  element={<AdminLogin />}
+/>
+
+<Route
+  path="/admin/dashboard"
+  element={
+    <PrivateRoute>
+      <Dashboard />
+    </PrivateRoute>
+  }
+/>
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services/:service" element={<ServiceDetailPage />} />
         <Route path="/portfolio/:category" element={<PortfolioGalleryPage />} />

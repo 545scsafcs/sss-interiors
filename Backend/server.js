@@ -2,7 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+
 const leadRoutes = require("./routes/leadRoutes");
+const adminRoutes = require("./routes/adminRoutes"); // ← ADD THIS
 
 dotenv.config();
 
@@ -12,7 +14,9 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
 app.use("/api/leads", leadRoutes);
+app.use("/api/admin", adminRoutes); // ← ADD THIS
 
 app.get("/", (req, res) => {
   res.send("SSS Interiors Backend Running 🚀");

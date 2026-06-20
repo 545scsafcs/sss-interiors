@@ -49,10 +49,38 @@ function Admin() {
 
   return (
     <div className="admin-container">
+      <div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "20px",
+  }}
+>
+  <h1 className="admin-title">
+    SSS Interiors Admin Dashboard
+  </h1>
 
-      <h1 className="admin-title">
-        SSS Interiors Admin Dashboard
-      </h1>
+  <button
+    onClick={() => {
+      localStorage.removeItem("token");
+      window.location.href = "/admin/login";
+    }}
+    style={{
+      background: "#c79a63",
+      color: "white",
+      border: "none",
+      padding: "10px 20px",
+      borderRadius: "8px",
+      cursor: "pointer",
+      fontWeight: "600",
+    }}
+  >
+    Logout
+  </button>
+</div>
+
+      
 
       <div className="stats-container">
 
