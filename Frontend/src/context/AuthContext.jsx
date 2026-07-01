@@ -14,8 +14,10 @@ export const AuthProvider = ({ children }) => {
 
     if (token && adminData) {
       try {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setAdmin(JSON.parse(adminData));
         setIsAuthenticated(true);
+      // eslint-disable-next-line no-unused-vars
       } catch (error) {
         // Invalid data in localStorage
         localStorage.removeItem("token");
@@ -55,6 +57,7 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
